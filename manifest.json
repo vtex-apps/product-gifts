@@ -9,7 +9,11 @@
     "store": "0.x",
     "docs": "0.x"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vtex.product-context": "0.x",
+    "vtex.search-graphql": "0.x",
+    "vtex.native-types": "0.x"
+  },
   "registries": [
     "smartcheckout"
   ],
