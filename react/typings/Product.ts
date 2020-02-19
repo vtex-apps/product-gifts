@@ -149,7 +149,7 @@ interface Seller {
     AvailableQuantity: number
     Tax: number
     CacheVersionUsedToCallCheckout: string
-    giftSkuIds: Gift[]
+    gifts: Gift[]
   }
 }
 
@@ -159,10 +159,6 @@ interface Gift {
   linkText: string
   description: string
   productTitle: string
-  skuItem: GiftSkuItem
-}
-
-interface GiftSkuItem {
   nameComplete: string
   images: GiftImage[]
 }
