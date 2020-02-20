@@ -1,7 +1,7 @@
-import React, { FC, useContext } from 'react'
+import React, { FC } from 'react'
 import { Image } from 'vtex.store-image'
 
-import { GiftContext } from './components/ProductGift'
+import { useGift } from './components/ProductGift'
 
 interface Props {
   maxWidth?: string | number
@@ -20,7 +20,8 @@ const ProductGiftImage: FC<Props> = ({
   minHeight = DEFAULT_IMAGE_DIMENSIONS,
   imageIndex = 0,
 }) => {
-  const gift = useContext(GiftContext)
+  const gift = useGift()
+
   return (
     <Image
       maxWidth={maxWidth}

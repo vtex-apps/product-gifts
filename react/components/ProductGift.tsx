@@ -1,4 +1,4 @@
-import React, { FC, createContext } from 'react'
+import React, { FC, createContext, useContext } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 
 import { useProductGiftsState } from '../ProductGiftsContext'
@@ -22,6 +22,16 @@ const ProductGift: FC<Props> = ({ giftIndex, children }) => {
       </div>
     </GiftContext.Provider>
   )
+}
+
+export function useGift() {
+  const context = useContext(GiftContext)
+  if (context === undefined) {
+    throw new Error(
+      'useProductGift must be used within a ProductGiftContextProvider'
+    )
+  }
+  return context
 }
 
 export default ProductGift

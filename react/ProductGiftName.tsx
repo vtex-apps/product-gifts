@@ -1,8 +1,8 @@
-import React, { FC, useContext } from 'react'
+import React, { FC } from 'react'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
 
-import { GiftContext } from './components/ProductGift'
+import { useGift } from './components/ProductGift'
 
 interface Props {
   linkToProductPage: boolean
@@ -12,7 +12,7 @@ const CSS_HANDLES = ['giftNameLink', 'giftNameText']
 
 const ProductGiftName: FC<Props> = ({ linkToProductPage = true }) => {
   const handles = useCssHandles(CSS_HANDLES)
-  const gift = useContext(GiftContext)
+  const gift = useGift()
 
   return linkToProductPage ? (
     <Link

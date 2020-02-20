@@ -1,13 +1,13 @@
-import React, { FC, useContext } from 'react'
+import React, { FC } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 
-import { GiftContext } from './components/ProductGift'
+import { useGift } from './components/ProductGift'
 
 const CSS_HANDLES = ['giftDescription']
 
 const ProductGiftDescription: FC = () => {
   const handles = useCssHandles(CSS_HANDLES)
-  const gift = useContext(GiftContext)
+  const gift = useGift()
 
   return (
     <span className={`${handles.giftDescription} t-small c-muted-1`}>
