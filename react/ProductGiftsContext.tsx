@@ -1,4 +1,4 @@
-import React, { createContext, useContext, FC } from 'react'
+import React, { createContext, useContext, FC, useMemo } from 'react'
 import useProduct from 'vtex.product-context/useProduct'
 
 interface Props {
@@ -16,19 +16,27 @@ const ProductGiftsContextProvider: FC<Props> = ({
   maxVisibleItems,
 }) => {
   const productContext: Maybe<ProductContextState> = useProduct()
+  const selectedItemFromContext = productContext?.selectedItem
 
-  if (!productContext) {
+  const giftsMemoized = useMemo(() => {
+    const sellers = selectedItemFromContext?.sellers ?? []
+    const gifts =
+      sellers?.reduce((acc: Gift[], curr) => {
+        acc.push(...(curr.commertialOffer.gifts || []))
+        return acc
+      }, []) ?? []
+
+    return gifts
+  }, [selectedItemFromContext])
+
+  if (!productContext || giftsMemoized.length === 0) {
     return null
   }
 
-  const sellers = productContext?.selectedItem?.sellers
-  const gifts =
-    sellers?.reduce((acc: Gift[], curr) => {
-      return [...acc, ...(curr.commertialOffer.gifts || [])]
-    }, []) ?? []
-
   return (
-    <GiftsStateContext.Provider value={{ gifts, maxVisibleItems }}>
+    <GiftsStateContext.Provider
+      value={{ gifts: giftsMemoized, maxVisibleItems }}
+    >
       {children}
     </GiftsStateContext.Provider>
   )
