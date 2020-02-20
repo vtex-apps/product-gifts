@@ -158,8 +158,7 @@ interface Gift {
   brand: string
   linkText: string
   description: string
-  productTitle: string
-  nameComplete: string
+  skuName: string
   images: GiftImage[]
 }
 

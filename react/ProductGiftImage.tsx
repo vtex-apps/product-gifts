@@ -29,7 +29,7 @@ const ProductGiftImage: FC<Props> = ({
       minHeight={minHeight}
       src={gift?.images[imageIndex].imageUrl}
       alt={gift?.productName}
-      title={gift?.productTitle}
+      title={gift?.skuName}
     />
   )
 }

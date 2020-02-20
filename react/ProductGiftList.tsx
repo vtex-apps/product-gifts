@@ -15,7 +15,7 @@ const ProductGiftList: FC = ({ children }) => {
   return (
     <div className={`${handles.productGiftListContainer} mv5`}>
       {gifts.slice(0, itemsToShow).map((gift, idx) => (
-        <ProductGift key={gift.nameComplete} giftIndex={idx}>
+        <ProductGift key={gift.skuName} giftIndex={idx}>
           {children}
         </ProductGift>
       ))}

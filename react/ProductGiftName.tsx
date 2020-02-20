@@ -19,12 +19,10 @@ const ProductGiftName: FC<Props> = ({ linkToProductPage = true }) => {
       className={`${handles.giftNameLink} c-on-base link`}
       href={`/${gift?.linkText}/p`}
     >
-      <span className={`${handles.giftNameText}`}>{gift?.nameComplete}</span>
+      <span className={`${handles.giftNameText}`}>{gift?.skuName}</span>
     </Link>
   ) : (
-    <span className={`${handles.giftNameText} c-on-base`}>
-      {gift?.nameComplete}
-    </span>
+    <span className={`${handles.giftNameText} c-on-base`}>{gift?.skuName}</span>
   )
 }
 
