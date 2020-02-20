@@ -18,25 +18,24 @@ const ProductGiftsContextProvider: FC<Props> = ({
   const productContext: Maybe<ProductContextState> = useProduct()
   const selectedItemFromContext = productContext?.selectedItem
 
-  const giftsMemoized = useMemo(() => {
-    const sellers = selectedItemFromContext?.sellers ?? []
-    const gifts =
-      sellers?.reduce((acc: Gift[], curr) => {
-        acc.push(...(curr.commertialOffer.gifts || []))
-        return acc
-      }, []) ?? []
+  const sellers = selectedItemFromContext?.sellers ?? []
+  const gifts =
+    sellers?.reduce((acc: Gift[], curr) => {
+      acc.push(...(curr.commertialOffer.gifts || []))
+      return acc
+    }, []) ?? []
 
-    return gifts
-  }, [selectedItemFromContext])
+  const state = useMemo(() => ({ gifts, maxVisibleItems }), [
+    gifts,
+    maxVisibleItems,
+  ])
 
-  if (!productContext || giftsMemoized.length === 0) {
+  if (!productContext || state.gifts.length === 0) {
     return null
   }
 
   return (
-    <GiftsStateContext.Provider
-      value={{ gifts: giftsMemoized, maxVisibleItems }}
-    >
+    <GiftsStateContext.Provider value={state}>
       {children}
     </GiftsStateContext.Provider>
   )
