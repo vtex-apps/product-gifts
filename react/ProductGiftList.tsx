@@ -4,7 +4,7 @@ import { useCssHandles } from 'vtex.css-handles'
 import { useProductGiftsState } from './ProductGiftsContext'
 import ProductGift from './components/ProductGift'
 
-const CSS_HANDLES = ['productGiftListContainer']
+const CSS_HANDLES = ['productGiftListContainer'] as const
 
 const ProductGiftList: FC = ({ children }) => {
   const { gifts, maxVisibleItems } = useProductGiftsState()

@@ -3,7 +3,7 @@ import { useCssHandles } from 'vtex.css-handles'
 
 import { useGift } from './components/ProductGift'
 
-const CSS_HANDLES = ['giftDescription']
+const CSS_HANDLES = ['giftDescription'] as const
 
 const ProductGiftDescription: FC = () => {
   const handles = useCssHandles(CSS_HANDLES)

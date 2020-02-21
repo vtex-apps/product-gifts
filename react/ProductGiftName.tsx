@@ -8,21 +8,21 @@ interface Props {
   linkToProductPage: boolean
 }
 
-const CSS_HANDLES = ['giftNameLink', 'giftNameText']
+const CSS_HANDLES = ['giftNameLink', 'giftNameText'] as const
 
-const ProductGiftName: FC<Props> = ({ linkToProductPage = true }) => {
+const ProductGiftName: FC<Props> = ({ linkToProductPage = false }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const gift = useGift()
 
   return linkToProductPage ? (
     <Link
       className={`${handles.giftNameLink} c-on-base link`}
-      href={`/${gift?.linkText}/p`}
+      href={`/${gift.linkText}/p`}
     >
-      <span className={`${handles.giftNameText}`}>{gift?.skuName}</span>
+      <span className={`${handles.giftNameText}`}>{gift.skuName}</span>
     </Link>
   ) : (
-    <span className={`${handles.giftNameText} c-on-base`}>{gift?.skuName}</span>
+    <span className={`${handles.giftNameText} c-on-base`}>{gift.skuName}</span>
   )
 }
 

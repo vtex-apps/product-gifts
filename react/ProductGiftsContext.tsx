@@ -9,7 +9,10 @@ interface State extends Props {
   gifts: Gift[]
 }
 
-const GiftsStateContext = createContext<State | undefined>(undefined)
+const GiftsStateContext = createContext<State>({
+  gifts: [],
+  maxVisibleItems: 0,
+})
 
 const ProductGiftsContextProvider: FC<Props> = ({
   children,

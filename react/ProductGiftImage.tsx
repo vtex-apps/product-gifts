@@ -8,7 +8,7 @@ interface Props {
   maxHeight?: string | number
   minWidth?: string | number
   minHeight?: string | number
-  imageIndex?: number
+  imageLabel?: string
 }
 
 const DEFAULT_IMAGE_DIMENSIONS = 125
@@ -18,9 +18,11 @@ const ProductGiftImage: FC<Props> = ({
   maxHeight = DEFAULT_IMAGE_DIMENSIONS,
   minWidth = DEFAULT_IMAGE_DIMENSIONS,
   minHeight = DEFAULT_IMAGE_DIMENSIONS,
-  imageIndex = 0,
+  imageLabel,
 }) => {
   const gift = useGift()
+  const productImage =
+    gift.images.find(image => image.imageLabel === imageLabel) ?? gift.images[0]
 
   return (
     <Image
@@ -28,9 +30,9 @@ const ProductGiftImage: FC<Props> = ({
       maxHeight={maxHeight}
       minWidth={minWidth}
       minHeight={minHeight}
-      src={gift?.images[imageIndex].imageUrl}
-      alt={gift?.productName}
-      title={gift?.skuName}
+      src={productImage.imageUrl}
+      alt={gift.productName}
+      title={gift.skuName}
     />
   )
 }

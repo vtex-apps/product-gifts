@@ -7,7 +7,7 @@ interface Props {
   giftIndex: number
 }
 
-const CSS_HANDLES = ['giftListItem']
+const CSS_HANDLES = ['giftListItem'] as const
 
 export const GiftContext = createContext<Gift | undefined>(undefined)
 
