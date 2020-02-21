@@ -14,11 +14,10 @@
     "vtex.search-graphql": "0.x",
     "vtex.native-types": "0.x",
     "vtex.store-image": "0.x",
-    "vtex.css-handles": "0.x"
+    "vtex.css-handles": "0.x",
+    "vtex.responsive-values": "0.x"
   },
-  "registries": [
-    "smartcheckout"
-  ],
+  "registries": ["smartcheckout"],
   "policies": [],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
