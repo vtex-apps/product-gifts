@@ -13,7 +13,7 @@ const ProductGiftList: FC = ({ children }) => {
     maxVisibleItems === 'showAll' ? gifts.length : maxVisibleItems
 
   return (
-    <div className={`${handles.productGiftListContainer} mv5`}>
+    <div className={handles.productGiftListContainer}>
       {gifts.slice(0, itemsToShow).map((gift, idx) => (
         <ProductGift key={gift.skuName} giftIndex={idx}>
           {children}
