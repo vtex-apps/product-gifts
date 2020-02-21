@@ -1,6 +1,8 @@
-📢 Use this project, [contribute](https://github.com/vtex-apps/product-gifts) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
+<!-- 📢 Use this project, [contribute](https://github.com/vtex-apps/product-gifts) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion). -->
 
-# Product Gifts
+📢 **This project is a work-in-progress, this app is not read for use yet.**
+
+# [WIP] Product Gifts
 
 Under the block's name, you should explain the topic, giving a **brief description** of the **block's functionality** in a store.
 
