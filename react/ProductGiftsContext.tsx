@@ -24,7 +24,7 @@ const ProductGiftsContextProvider: FC<Props> = ({
   const sellers = selectedItemFromContext?.sellers ?? []
   const gifts =
     sellers?.reduce((acc: Gift[], curr) => {
-      acc.push(...(curr.commertialOffer.gifts || []))
+      acc.push(...(curr.commertialOffer.gifts ?? []))
       return acc
     }, []) ?? []
 
