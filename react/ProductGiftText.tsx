@@ -5,7 +5,7 @@ import { useCssHandles } from 'vtex.css-handles'
 import { useProductGiftsState } from './ProductGiftsContext'
 
 interface Props {
-  translatableText: string
+  translatableText?: string
 }
 
 const CSS_HANDLES = ['productGiftText'] as const

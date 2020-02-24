@@ -8,7 +8,7 @@ import { useCssHandles } from 'vtex.css-handles'
 import { ProductGiftsContextProvider } from './ProductGiftsContext'
 
 interface Props {
-  maxVisibleItems: MaybeResponsiveInput<number | 'showAll'>
+  maxVisibleItems?: MaybeResponsiveInput<number | 'showAll'>
 }
 
 const CSS_HANDLES = ['productGiftsContainer'] as const
