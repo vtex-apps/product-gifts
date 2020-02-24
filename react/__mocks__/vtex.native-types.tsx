@@ -7,6 +7,10 @@ interface Props {
 
 export const IOMessage: FC<Props> = ({ id, values }) => {
   return (
-    <Fragment>{`Received message id: ${id} and the following values: ${values}`}</Fragment>
+    <Fragment>
+      {`Received message id: ${id} and the following values (totalGifts, exceedingItems, visibleItems): ${Object.values(
+        values
+      )}`}
+    </Fragment>
   )
 }
