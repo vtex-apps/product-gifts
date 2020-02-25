@@ -32,7 +32,7 @@ describe('CSS handles API', () => {
   it('should have all expected CSS handles', () => {
     const { container } = renderWithProductContext(
       <ProductGifts maxVisibleItems={3}>
-        <ProductGiftText translatableText="{test} {dynamic}" />
+        <ProductGiftText text="{test} {dynamic}" />
         <ProductGiftList>
           <ProductGiftDescription />
           <ProductGiftImage />

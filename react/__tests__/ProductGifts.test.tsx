@@ -14,7 +14,7 @@ describe('ProductGifts component', () => {
   it('should not render component if product has no gifts', () => {
     const { container } = renderWithProductContext(
       <ProductGifts maxVisibleItems={3}>
-        <ProductGiftText translatableText="{test} {dynamic}" />
+        <ProductGiftText text="{test} {dynamic}" />
         <ProductGiftList>
           <ProductGiftDescription />
           <ProductGiftImage />
@@ -30,7 +30,7 @@ describe('ProductGifts component', () => {
   it('should render child components if product has gifts', () => {
     const { container } = renderWithProductContext(
       <ProductGifts maxVisibleItems={3}>
-        <ProductGiftText translatableText="{test} {dynamic}" />
+        <ProductGiftText text="{test} {dynamic}" />
         <ProductGiftList>
           <ProductGiftDescription />
           <ProductGiftImage />

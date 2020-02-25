@@ -2,7 +2,6 @@
 import React from 'react'
 
 import ProductGifts from '../ProductGifts'
-import ProductGiftText from '../ProductGiftText'
 import ProductGiftList from '../ProductGiftList'
 import ProductGiftImage from '../ProductGiftImage'
 import { itemWithOneGift } from '../__mocks__/products'
@@ -12,7 +11,6 @@ describe('ProductGifts component', () => {
   it('should render image with correct label', () => {
     const { queryByText } = renderWithProductContext(
       <ProductGifts maxVisibleItems={3}>
-        <ProductGiftText translatableText="" />
         <ProductGiftList>
           <ProductGiftImage imageLabel="frame-2" />
         </ProductGiftList>
@@ -30,7 +28,6 @@ describe('ProductGifts component', () => {
   it('should render first available image if no label is received', () => {
     const { queryByText } = renderWithProductContext(
       <ProductGifts maxVisibleItems={3}>
-        <ProductGiftText translatableText="" />
         <ProductGiftList>
           <ProductGiftImage />
         </ProductGiftList>
@@ -48,7 +45,6 @@ describe('ProductGifts component', () => {
   it('should render first available image if no image matches received label', () => {
     const { queryByText } = renderWithProductContext(
       <ProductGifts maxVisibleItems={3}>
-        <ProductGiftText translatableText="" />
         <ProductGiftList>
           <ProductGiftImage imageLabel="this-is-not-a-valid-label" />
         </ProductGiftList>

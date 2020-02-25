@@ -1,17 +1,18 @@
 import React, { useMemo } from 'react'
+import { defineMessages } from 'react-intl'
 import { IOMessage } from 'vtex.native-types'
 import { useCssHandles } from 'vtex.css-handles'
 
 import { useProductGiftsState } from './ProductGiftsContext'
 
 interface Props {
-  translatableText?: string
+  text?: string
 }
 
 const CSS_HANDLES = ['productGiftText'] as const
 
 const ProductGiftText: StoreFunctionComponent<Props> = ({
-  translatableText,
+  text: translatableText,
 }) => {
   const { gifts, maxVisibleItems } = useProductGiftsState()
   const handles = useCssHandles(CSS_HANDLES)
@@ -40,10 +41,27 @@ const ProductGiftText: StoreFunctionComponent<Props> = ({
   )
 }
 
-ProductGiftText.schema = {
-  title: 'ProductGifts',
-  description: 'A test, for now.',
-  type: 'Object',
-}
+/**
+ * These messages are used in contentSchema.json and need to be defined for the messages
+ * builder to pick them up. If these are not here, CMS will render their IDs.
+ */
+defineMessages({
+  title: {
+    id: 'admin/editor.product-gift-text.title',
+    defaultMessage: '',
+  },
+  description: {
+    id: 'admin/editor.product-gift-text.description',
+    defaultMessage: '',
+  },
+  text: {
+    id: 'admin/editor.product-gift-text.text.title',
+    defaultMessage: '',
+  },
+  textDescription: {
+    id: 'admin/editor.gift-name.text.description',
+    defaultMessage: '',
+  },
+})
 
 export default ProductGiftText

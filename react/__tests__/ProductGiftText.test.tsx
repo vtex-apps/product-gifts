@@ -12,7 +12,7 @@ describe('ProductGiftText component', () => {
   it('should pass the correct values to IOMessage component', () => {
     const { queryByText } = renderWithProductContext(
       <ProductGifts maxVisibleItems={1}>
-        <ProductGiftText translatableText="This is a message ID" />
+        <ProductGiftText text="This is a message ID" />
         <ProductGiftList>
           <ProductGiftImage />
         </ProductGiftList>
