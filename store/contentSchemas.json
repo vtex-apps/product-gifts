@@ -1,8 +1,6 @@
 {
   "definitions": {
-    "ProductGiftText": {
-      "title": "admin/editor.product-gift-text.title",
-      "description": "admin/editor.product-gift-text.description",
+    "GiftText": {
       "type": "object",
       "properties": {
         "text": {
