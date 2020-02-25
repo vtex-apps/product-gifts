@@ -4,7 +4,7 @@
 
 This is a block used for rendering the list of available gifts associated with a certain product in the Product Description Page (`store.product` template).
 
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+![Product Gifts default implementation](https://user-images.githubusercontent.com/27777263/75287087-84382780-57f8-11ea-99d5-704ec3456aee.png)
 
 ## Configuration
 
@@ -122,7 +122,7 @@ This app exposes multiple blocks that can be used _inside_ the `product-gifts` o
 
 This is a block that is capable of reading information regarding the available gifts and use it to format the value of its `text` prop:
 
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+![gift-text](https://user-images.githubusercontent.com/27777263/75287207-bb0e3d80-57f8-11ea-82aa-35da8ed87d44.png)
 
 | Prop name | Type     | Description                                                                                         | Default value                                                       |
 | --------- | -------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
@@ -146,7 +146,7 @@ It also provides the necessary context to the its children that read information
 
 This block is responsible for rendering the SKU name for the gift.
 
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+![gift-name](https://user-images.githubusercontent.com/27777263/75287267-d8430c00-57f8-11ea-9105-7a1f9591e12f.png)
 
 | Prop name           | Type      | Description                                                               | Default value |
 | ------------------- | --------- | ------------------------------------------------------------------------- | ------------- |
@@ -156,7 +156,7 @@ This block is responsible for rendering the SKU name for the gift.
 
 This block is responsible for rendering the image of the gift. It can receive an image label associated to the image that should be rendered, or it will just render the first available image for the SKU by default.
 
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+![gift-image](https://user-images.githubusercontent.com/27777263/75287281-dbd69300-57f8-11ea-87b5-50cf009be522.png)
 
 | Prop name    | Type                     | Description                                     | Default value |
 | ------------ | ------------------------ | ----------------------------------------------- | ------------- |
@@ -170,7 +170,7 @@ This block is responsible for rendering the image of the gift. It can receive an
 
 This block is responsible for rendering the gift's description.
 
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+![gift-description](https://user-images.githubusercontent.com/27777263/75287368-fdd01580-57f8-11ea-9556-d91bbaec252e.png)
 
 ## Customization
 
