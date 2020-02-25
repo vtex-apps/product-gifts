@@ -10,7 +10,7 @@ interface Props {
 
 const CSS_HANDLES = ['productGiftText'] as const
 
-const ProductGiftText: StorefrontFunctionComponent<Props> = ({
+const ProductGiftText: StoreFunctionComponent<Props> = ({
   translatableText,
 }) => {
   const { gifts, maxVisibleItems } = useProductGiftsState()
