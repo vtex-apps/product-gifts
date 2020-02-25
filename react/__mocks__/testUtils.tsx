@@ -13,3 +13,19 @@ export function renderWithProductContext(
     </ProductContextProvider>
   )
 }
+
+export function findCSSHandles(container: HTMLElement, handles: string[]) {
+  const foundNodes = handles
+    .map(handle => {
+      const foundNodesInner = container.querySelectorAll(`.${handle}`)
+      let classes = ''
+      foundNodesInner.forEach(node => {
+        classes = classes.concat(node.classList.value)
+      })
+
+      return classes
+    })
+    .reduce((acc, curr) => `${acc} ${curr}`)
+
+  return foundNodes
+}
