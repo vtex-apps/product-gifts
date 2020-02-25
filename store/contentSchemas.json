@@ -1,0 +1,16 @@
+{
+  "definitions": {
+    "ProductGiftText": {
+      "title": "admin/editor.product-gift-text.title",
+      "description": "admin/editor.product-gift-text.description",
+      "type": "object",
+      "properties": {
+        "text": {
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "title": "admin/editor.product-gift-text.text.title",
+          "description": "admin/editor.product-gift-text.text.description"
+        }
+      }
+    }
+  }
+}
