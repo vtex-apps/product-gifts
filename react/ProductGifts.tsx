@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React from 'react'
+import { defineMessages } from 'react-intl'
 import {
   useResponsiveValue,
   MaybeResponsiveInput,
@@ -13,7 +14,10 @@ interface Props {
 
 const CSS_HANDLES = ['productGiftsContainer'] as const
 
-const ProductGifts: FC<Props> = ({ children, maxVisibleItems = 'showAll' }) => {
+const ProductGifts: StoreFunctionComponent<Props> = ({
+  children,
+  maxVisibleItems = 'showAll',
+}) => {
   const handles = useCssHandles(CSS_HANDLES)
   const staticMaxVisibleItems = useResponsiveValue<number | 'showAll'>(
     maxVisibleItems
@@ -24,6 +28,39 @@ const ProductGifts: FC<Props> = ({ children, maxVisibleItems = 'showAll' }) => {
       <div className={handles.productGiftsContainer}>{children}</div>
     </ProductGiftsContextProvider>
   )
+}
+
+const messages = defineMessages({
+  title: {
+    id: 'admin/editor.product-gifts.title',
+    defaultMessage: '',
+  },
+  description: {
+    id: 'admin/editor.product-gifts.description',
+    defaultMessage: '',
+  },
+  maxVisibleItems: {
+    id: 'admin/editor.product-gifts.maxVisibleItems.title',
+    defaultMessage: '',
+  },
+  maxVisibleItemsDescription: {
+    id: 'admin/editor.product-gifts.maxVisibleItems.description',
+    defaultMessage: '',
+  },
+})
+
+ProductGifts.schema = {
+  title: messages.title.id,
+  description: messages.description.id,
+  type: 'object',
+  properties: {
+    maxVisibleItems: {
+      default: 'showAll',
+      title: messages.maxVisibleItems.id,
+      description: messages.maxVisibleItemsDescription.id,
+      type: 'string',
+    },
+  },
 }
 
 export default ProductGifts
