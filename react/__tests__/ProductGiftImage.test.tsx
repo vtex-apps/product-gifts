@@ -22,9 +22,9 @@ describe('ProductGifts component', () => {
 
     expect(
       queryByText(
-        'https://storecomponents.vteximg.com.br/arquivos/ids/155476/Frame-2.jpg?v=636793808441900000'
+        'This should be an image with src: https://storecomponents.vteximg.com.br/arquivos/ids/155476/Frame-2.jpg?v=636793808441900000'
       )
-    ).toBeDefined()
+    ).toBeTruthy()
   })
 
   it('should render first available image if no label is received', () => {
@@ -40,9 +40,9 @@ describe('ProductGifts component', () => {
 
     expect(
       queryByText(
-        'https://storecomponents.vteximg.com.br/arquivos/ids/155476/Frame-4.jpg?v=636793808441900000'
+        'This should be an image with src: https://storecomponents.vteximg.com.br/arquivos/ids/155476/Frame-4.jpg?v=636793808441900000'
       )
-    ).toBeDefined()
+    ).toBeTruthy()
   })
 
   it('should render first available image if no image matches received label', () => {
@@ -58,8 +58,8 @@ describe('ProductGifts component', () => {
 
     expect(
       queryByText(
-        'https://storecomponents.vteximg.com.br/arquivos/ids/155476/Frame-4.jpg?v=636793808441900000'
+        'This should be an image with src: https://storecomponents.vteximg.com.br/arquivos/ids/155476/Frame-4.jpg?v=636793808441900000'
       )
-    ).toBeDefined()
+    ).toBeTruthy()
   })
 })

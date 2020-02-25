@@ -1,5 +1,5 @@
-import React from 'react'
+import React, { FC, Fragment } from 'react'
 
-export const Image = () => (
-  <img src="product-gifts-test" alt="product-gifts-test" />
+export const Image: FC<{ src: string }> = ({ src }) => (
+  <Fragment>This should be an image with src: {src}</Fragment>
 )
