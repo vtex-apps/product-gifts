@@ -2,7 +2,7 @@
 import React from 'react'
 
 import ProductGifts from '../ProductGifts'
-import ProductGiftText from '../ProductGiftText'
+import GiftText from '../GiftText'
 import ProductGiftList from '../ProductGiftList'
 import ProductGiftImage from '../ProductGiftImage'
 import { itemWithThreeGifts } from '../__mocks__/products'
@@ -12,7 +12,7 @@ describe('ProductGiftText component', () => {
   it('should pass the correct values to IOMessage component', () => {
     const { queryByText } = renderWithProductContext(
       <ProductGifts maxVisibleItems={1}>
-        <ProductGiftText text="This is a message ID" />
+        <GiftText text="This is a message ID" />
         <ProductGiftList>
           <ProductGiftImage />
         </ProductGiftList>

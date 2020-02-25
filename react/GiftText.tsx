@@ -11,9 +11,7 @@ interface Props {
 
 const CSS_HANDLES = ['productGiftText'] as const
 
-const ProductGiftText: StoreFunctionComponent<Props> = ({
-  text: translatableText,
-}) => {
+const GiftText: StoreFunctionComponent<Props> = ({ text }) => {
   const { gifts, maxVisibleItems } = useProductGiftsState()
   const handles = useCssHandles(CSS_HANDLES)
   const resolvedMaxVisibleItems =
@@ -36,7 +34,7 @@ const ProductGiftText: StoreFunctionComponent<Props> = ({
 
   return (
     <span className={handles.productGiftText}>
-      <IOMessage id={translatableText} values={values} />
+      <IOMessage id={text} values={values} />
     </span>
   )
 }
@@ -45,7 +43,7 @@ const ProductGiftText: StoreFunctionComponent<Props> = ({
  * These messages are used in contentSchema.json and need to be defined for the messages
  * builder to pick them up. If these are not here, CMS will render their IDs.
  */
-defineMessages({
+const messages = defineMessages({
   title: {
     id: 'admin/editor.product-gift-text.title',
     defaultMessage: '',
@@ -59,9 +57,14 @@ defineMessages({
     defaultMessage: '',
   },
   textDescription: {
-    id: 'admin/editor.gift-name.text.description',
+    id: 'admin/editor.product-gift-text.text.description',
     defaultMessage: '',
   },
 })
 
-export default ProductGiftText
+GiftText.schema = {
+  title: messages.title.id,
+  description: messages.description.id,
+}
+
+export default GiftText

@@ -2,7 +2,7 @@
 import React from 'react'
 
 import ProductGifts from '../ProductGifts'
-import ProductGiftText from '../ProductGiftText'
+import GiftText from '../GiftText'
 import ProductGiftList from '../ProductGiftList'
 import ProductGiftDescription from '../ProductGiftDescription'
 import ProductGiftImage from '../ProductGiftImage'
@@ -14,7 +14,7 @@ describe('ProductGifts component', () => {
   it('should not render component if product has no gifts', () => {
     const { container } = renderWithProductContext(
       <ProductGifts maxVisibleItems={3}>
-        <ProductGiftText text="{test} {dynamic}" />
+        <GiftText text="{test} {dynamic}" />
         <ProductGiftList>
           <ProductGiftDescription />
           <ProductGiftImage />
@@ -30,7 +30,7 @@ describe('ProductGifts component', () => {
   it('should render child components if product has gifts', () => {
     const { container } = renderWithProductContext(
       <ProductGifts maxVisibleItems={3}>
-        <ProductGiftText text="{test} {dynamic}" />
+        <GiftText text="{test} {dynamic}" />
         <ProductGiftList>
           <ProductGiftDescription />
           <ProductGiftImage />

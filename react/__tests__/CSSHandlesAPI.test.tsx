@@ -2,7 +2,7 @@
 import React from 'react'
 
 import ProductGifts from '../ProductGifts'
-import ProductGiftText from '../ProductGiftText'
+import GiftText from '../GiftText'
 import ProductGiftList from '../ProductGiftList'
 import ProductGiftDescription from '../ProductGiftDescription'
 import ProductGiftImage from '../ProductGiftImage'
@@ -32,7 +32,7 @@ describe('CSS handles API', () => {
   it('should have all expected CSS handles', () => {
     const { container } = renderWithProductContext(
       <ProductGifts maxVisibleItems={3}>
-        <ProductGiftText text="{test} {dynamic}" />
+        <GiftText text="{test} {dynamic}" />
         <ProductGiftList>
           <ProductGiftDescription />
           <ProductGiftImage />
