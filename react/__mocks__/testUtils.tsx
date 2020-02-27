@@ -17,15 +17,10 @@ export function renderWithProductContext(
 export function findCSSHandles(container: HTMLElement, handles: string[]) {
   const foundNodes = handles
     .map(handle => {
-      const foundNodesInner = container.querySelectorAll(`.${handle}`)
-      let classes = ''
-      foundNodesInner.forEach(node => {
-        classes = classes.concat(node.classList.value)
-      })
-
-      return classes
+      const foundNodesInner = container.getElementsByClassName(handle)
+      return foundNodesInner.length > 0 ? handle : ''
     })
-    .reduce((acc, curr) => `${acc} ${curr}`)
+    .filter(result => result !== '')
 
   return foundNodes
 }

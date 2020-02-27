@@ -42,11 +42,7 @@ describe('CSS handles API', () => {
       itemWithOneGift
     )
 
-    const foundCSS = findCSSHandles(container, CSS_HANDLES_API)
-    const foundHandles = CSS_HANDLES_API.filter(handle =>
-      foundCSS.includes(handle)
-    )
-
+    const foundHandles = findCSSHandles(container, CSS_HANDLES_API)
     expect(foundHandles).toEqual(CSS_HANDLES_API)
   })
 })
