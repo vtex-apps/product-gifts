@@ -126,7 +126,7 @@ The `gift-text` is a block responsible for reading Catalog data regarding produc
 
 | Prop name | Type     | Description                                                                                         | Default value                                                       |
 | --------- | -------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `text`    | `String` | A translatable string that has variables that might be used to render any text regarding the gifts. | `"{exceedingItems, plural, =0{} one {+ # gift} other {+ # gifts}}"` |
+| `text`    | `String` | A translatable string (according to ICU pattern) that has variables that might be used to render any text regarding the gifts. | `"{exceedingItems, plural, =0{} one {+ # gift} other {+ # gifts}}"` |
 
 The string received by the `text` prop has access to the following variables:
 
