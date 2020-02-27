@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React from 'react'
+import { defineMessages } from 'react-intl'
 import { Image } from 'vtex.store-image'
 
 import { useGift } from './components/ProductGift'
@@ -13,7 +14,7 @@ interface Props {
 
 const DEFAULT_IMAGE_DIMENSIONS = 125
 
-const ProductGiftImage: FC<Props> = ({
+const ProductGiftImage: StoreFunctionComponent<Props> = ({
   maxWidth = DEFAULT_IMAGE_DIMENSIONS,
   maxHeight = DEFAULT_IMAGE_DIMENSIONS,
   minWidth = DEFAULT_IMAGE_DIMENSIONS,
@@ -35,6 +36,39 @@ const ProductGiftImage: FC<Props> = ({
       title={gift.skuName}
     />
   )
+}
+
+const messages = defineMessages({
+  title: {
+    id: 'admin/editor.gift-image.title',
+    defaultMessage: '',
+  },
+  description: {
+    id: 'admin/editor.gift-image.description',
+    defaultMessage: '',
+  },
+  imageLabel: {
+    id: 'admin/editor.gift-image.imageLabel.title',
+    defaultMessage: '',
+  },
+  imageLabelDescription: {
+    id: 'admin/editor.gift-image.imageLabel.description',
+    defaultMessage: '',
+  },
+})
+
+ProductGiftImage.schema = {
+  title: messages.title.id,
+  description: messages.description.id,
+  type: 'object',
+  properties: {
+    imageLabel: {
+      default: '',
+      title: messages.imageLabel.id,
+      description: messages.imageLabelDescription.id,
+      type: 'string',
+    },
+  },
 }
 
 export default ProductGiftImage

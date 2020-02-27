@@ -14,7 +14,10 @@
     "component": "ProductGiftImage"
   },
   "gift-text": {
-    "component": "ProductGiftText"
+    "component": "GiftText",
+    "content": {
+      "$ref": "#/definitions/GiftText"
+    }
   },
   "gift-description": {
     "component": "ProductGiftDescription"

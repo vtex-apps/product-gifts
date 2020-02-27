@@ -149,7 +149,7 @@ interface Seller {
     AvailableQuantity: number
     Tax: number
     CacheVersionUsedToCallCheckout: string
-    gifts: Gift[]
+    gifts?: Gift[]
   }
 }
 

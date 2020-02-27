@@ -17,7 +17,10 @@ const ProductGift: FC<Props> = ({ giftIndex, children }) => {
 
   return (
     <GiftContext.Provider value={giftSkuInfo[giftIndex]}>
-      <div className={`${handles.giftListItem} br3 ba b--muted-3 mv2 pa5`}>
+      <div
+        data-testid="giftListItem"
+        className={`${handles.giftListItem} br3 ba b--muted-3 mv2 pa5`}
+      >
         {children}
       </div>
     </GiftContext.Provider>
