@@ -27,7 +27,7 @@ The Product Gifts app provides blocks responsible for displaying, in the Product
 }
 ```
 
-**Notice:** the app must be in the product template (store.product ) in order to work properly once it is displayed along with the Product Description block.
+**Notice:** the app must be in the product template (`store.product`) in order to work properly once it is displayed along with the Product Description block.
 
 | Prop name         | Type                        | Description                                            | Default value |
 | ----------------- | --------------------------- | ------------------------------------------------------ | ------------- |
@@ -107,7 +107,7 @@ The `gift-text` is a block responsible for reading Catalog data regarding produc
 
 | Prop name | Type     | Description                                                                                         | Default value                                                       |
 | --------- | -------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `text`    | `String` | A translatable string (according to ICU pattern) that has variables that might be used to render any text regarding the gifts. | `"{exceedingItems, plural, =0{} one {+ # gift} other {+ # gifts}}"` |
+| `text`    | `String` | A translatable string (according to [ICU pattern](https://formatjs.io/guides/message-syntax/)) that has variables that might be used to render any text regarding the gifts. | `"{exceedingItems, plural, =0{} one {+ # gift} other {+ # gifts}}"` |
 
 The string received by the `text` prop has access to the following variables:
 
