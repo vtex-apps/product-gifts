@@ -21,25 +21,6 @@ The Product Gifts app provides blocks responsible for displaying, in the Product
 ```jsonc
 "store.product": {
   "children": [
-    "flex-layout.row#product-breadcrumb",
-    "flex-layout.row#product-main",
-    "flex-layout.row#description",
-    "shelf.relatedProducts",
-    "product-reviews",
-    "product-questions-and-answers"
-  ]
-},
-
-"flex-layout.row#product-main": {
-  "children": ["flex-layout.col#stack", "flex-layout.col#right-col"]
-},
-
-"flex-layout.col#right-col": {
-  "props": {
-    "preventVerticalStretch": true,
-    "rowGap": 0
-  },
-  "children": [
     // (...)
     "product-gifts",
   ]
@@ -144,7 +125,7 @@ Although it receives no props, it is able to receive blocks through a `children`
 
 **Notice:** the `product-gift-list` block provides the necessary context to its children regarding other gifts blocks, such as the Gift Name, Image and Description.
 
-### Gift Name
+#### Gift Name
 
 The `gift-name` is responsible for rendering the SKU's gift name.
 
@@ -154,7 +135,7 @@ The `gift-name` is responsible for rendering the SKU's gift name.
 | ------------------- | --------- | ------------------------------------------------------------------------- | ------------- |
 | `linkToProductPage` | `Boolean` | Whether or not the `gift-name` block should be a link to the gift's product page. | `false`       |
 
-### Gift Image
+#### Gift Image
 
 The `gift-image` block renders the product gift image. In order to function, it can use an pre-defined image label or the first available image from the product's SKU.
 
@@ -168,9 +149,9 @@ The `gift-image` block renders the product gift image. In order to function, it 
 | `minHeight`  | `Number` &#124; `String` | Gift image minimum height.                   | `125`         |
 | `imageLabel` | `String`                 | The label of the image that should be rendered. | `undefined`   |
 
-### Gift Description
+#### Gift Description
 
-As the name says, the `gift-description` renders a given gift's description.
+As the name says, the `gift-description` renders a given gift's description, as provided by the `product-gift-list` block.
 
 ![gift-description](https://user-images.githubusercontent.com/27777263/75287368-fdd01580-57f8-11ea-9556-d91bbaec252e.png)
 
@@ -189,4 +170,3 @@ Thereafter, you should add a single column table with the available CSS handles 
 | productGiftListContainer |
 | productGiftText          |
 | productGiftsContainer    |
-
