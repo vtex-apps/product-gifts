@@ -2,13 +2,13 @@
 
 # Product Gifts
 
-This is a block used for rendering the list of available gifts associated with a certain product in the Product Description Page (`store.product` template).
+The Product Gifts app provides blocks responsible for displaying, in the Product Description block, all product gifts available.
 
 ![Product Gifts default implementation](https://user-images.githubusercontent.com/27777263/75287087-84382780-57f8-11ea-99d5-704ec3456aee.png)
 
 ## Configuration
 
-1. Add the product-gifts app to your theme's dependencies in the `manifest.json`, for example:
+1. Add the `product-gifts` app to your theme's dependencies in the `manifest.json`, for example:
 
 ```json
 "dependencies": {
@@ -46,15 +46,15 @@ This is a block used for rendering the list of available gifts associated with a
 }
 ```
 
+**Notice:** the app must be in the product template (store.product ) in order to work properly once it is displayed along with the Product Description block.
+
 | Prop name         | Type                        | Description                                            | Default value |
 | ----------------- | --------------------------- | ------------------------------------------------------ | ------------- |
 | `maxVisibleItems` | `number` &#124; `"showAll"` | Maximum number of gifts that will be displayed at once | `"showAll"`   |
 
-Notice that this block will not work correctly outside of `store.product`.
-
 ### Default implementation
 
-This block has a default blocks implementation which is used when `product-gifts` is used in a theme and is not configured.
+When declared in the `store.product` but not configured, the Product Gifts app has a default blocks implementation:
 
 ```json
 {
@@ -116,11 +116,11 @@ This block has a default blocks implementation which is used when `product-gifts
 
 ## Modus Operandi
 
-This app exposes multiple blocks that can be used _inside_ the `product-gifts` one using the `children` array.
+As shown above, the app exports multiple blocks that can be configured in the `product-gifts` main block through a `children` array, such as:
 
-### gift-text
+### Gift Text
 
-This is a block that is capable of reading information regarding the available gifts and use it to format the value of its `text` prop:
+The `gift-text` is a block responsible for reading Catalog data regarding product gifts and using it to fill out the `text` prop value.
 
 ![gift-text](https://user-images.githubusercontent.com/27777263/75287207-bb0e3d80-57f8-11ea-82aa-35da8ed87d44.png)
 
@@ -136,39 +136,41 @@ The string received by the `text` prop has access to the following variables:
 | `exceedingItems` | Number of items that were not rendered because of the maxVisibleItems prop of `product-gifts`. |
 | `visibleItems`   | Number of items that are being rendered.                                                       |
 
-### product-gift-list
+### Product Gift List
 
-This block is responsible for rendering the individual gifts as a list. It receives no props, but does receive blocks via `children`. Each block passed to it will be rendered as a gift-list item.
+The `product-gift-list` is responsible for rendering the available gifts in a list format.
 
-It also provides the necessary context to the its children that read information regarding each gift: `gift-name`, `gift-image` and `gift-description`.
+Although it receives no props, it is able to receive blocks through a `children` array. Each block in the array will be rendered as a gift list item.
 
-### gift-name
+**Notice:** the `product-gift-list` block provides the necessary context to its children regarding other gifts blocks, such as the Gift Name, Image and Description.
 
-This block is responsible for rendering the SKU name for the gift.
+### Gift Name
+
+The `gift-name` is responsible for rendering the SKU's gift name.
 
 ![gift-name](https://user-images.githubusercontent.com/27777263/75287267-d8430c00-57f8-11ea-9105-7a1f9591e12f.png)
 
 | Prop name           | Type      | Description                                                               | Default value |
 | ------------------- | --------- | ------------------------------------------------------------------------- | ------------- |
-| `linkToProductPage` | `Boolean` | Whether or not the gift-name should be a link to the gift's product page. | `false`       |
+| `linkToProductPage` | `Boolean` | Whether or not the `gift-name` block should be a link to the gift's product page. | `false`       |
 
-### gift-image
+### Gift Image
 
-This block is responsible for rendering the image of the gift. It can receive an image label associated to the image that should be rendered, or it will just render the first available image for the SKU by default.
+The `gift-image` block renders the product gift image. In order to function, it can use an pre-defined image label or the first available image from the product's SKU.
 
 ![gift-image](https://user-images.githubusercontent.com/27777263/75287281-dbd69300-57f8-11ea-87b5-50cf009be522.png)
 
 | Prop name    | Type                     | Description                                     | Default value |
 | ------------ | ------------------------ | ----------------------------------------------- | ------------- |
-| `maxWidth`   | `Number` &#124; `String` | Maximum width for the image.                    | `125`         |
-| `maxHeight`  | `Number` &#124; `String` | Maximum height for the image.                   | `125`         |
-| `minWidth`   | `Number` &#124; `String` | Minimum width for the image.                    | `125`         |
-| `minHeight`  | `Number` &#124; `String` | Minimum height for the image.                   | `125`         |
+| `maxWidth`   | `Number` &#124; `String` | Gift image maximum width.                    | `125`         |
+| `maxHeight`  | `Number` &#124; `String` | Gift image maximum height.                   | `125`         |
+| `minWidth`   | `Number` &#124; `String` | Gift image minimum width.                    | `125`         |
+| `minHeight`  | `Number` &#124; `String` | Gift image minimum height.                   | `125`         |
 | `imageLabel` | `String`                 | The label of the image that should be rendered. | `undefined`   |
 
-### gift-description
+### Gift Description
 
-This block is responsible for rendering the gift's description.
+As the name says, the `gift-description` renders a given gift's description.
 
 ![gift-description](https://user-images.githubusercontent.com/27777263/75287368-fdd01580-57f8-11ea-9556-d91bbaec252e.png)
 
