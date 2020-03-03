@@ -1,56 +1,170 @@
-<!-- 📢 Use this project, [contribute](https://github.com/vtex-apps/product-gifts) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion). -->
+📢 Use this project, [contribute](https://github.com/vtex-apps/product-gifts) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
-📢 **This project is a work-in-progress, this app is not read for use yet.**
+# Product Gifts
 
-# [WIP] Product Gifts
+The Product Gifts app provides blocks responsible for displaying, in the Product Description block, all gifts available for a given product.
 
-Under the block's name, you should explain the topic, giving a **brief description** of the **block's functionality** in a store.
+:information_source: *A product's gift is configured in a [Buy&Win promotion](https://help.vtex.com/tutorial/buy-and-win--tutorials_322)*
 
-Next, **add media** (either an image of a GIF) with the rendered block, so that users can better understand how the block works in practice.
-
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+![product-gift](https://user-images.githubusercontent.com/52087100/75782082-20a08380-5d3d-11ea-9ae1-60873e03f1ac.png)
 
 ## Configuration
 
-In this section, you first must **add the primary instructions** that will allow users to use the block in their store, such as adding the block's app as a dependency in the `manifest.json` and declaring the block itself in a given template.
+1. Add the `product-gifts` app to your theme's dependencies in the `manifest.json`. For example:
 
-Next, add the **block's props table**:
+```json
+"dependencies": {
+  "vtex.product-gifts": "0.x"
+}
+```
 
-| Prop name | Type     | Description | Default value |
-| --------- | -------- | ----------- | ------------- |
-| `XXXXX`   | `XXXXXX` | XXXXXXXX    | `XXXXXX`      |
+Now, you are able to use all blocks exported by the `product-gifts` app. Check out the full list below:
 
-Remember to also **showcase any necessary disclaimer** related to the block in this section, such as the different behavior it may display during its configuration.
+| Block name     | Description                                     |
+| -------------- | ----------------------------------------------- |
+| `gift-text` | Reads Catalog data regarding the product's gifts.  |
+| `product-gift-list` | Renders the available gifts in a list format. It also provides context for its 3 children listed below. |
+| `gift-name` | Renders the product's gift name |
+| `gift-image` | Renders the product's gift image.|
+| `gift-description` | Renders the gift's description provided by the `product-gift-list` block. |
 
-## Modus Operandi _(not mandatory)_
+2. Add the `product-gifts` block to your `store.product` template:
 
-There are scenarios in which a block can behave differently in a store, according to how it was added to the catalog, for example. It's crucial to go through these **behavioral changes** in this section, allowing users to fully understand the **practical application** of the block in their store.
+```jsonc
+"store.product": {
+  "children": [
+    // (...)
+    "product-gifts",
+  ]
+}
+```
 
-If you feel compelled to give further details about the block, such as it's **relationship with the VTEX admin**, don't hesitate to use this section.
+When added to the `store.product` template but not declared with any children or prop, the Product Gifts block is rendered even so.
+
+For the rendering, it uses the following block implementation behind the scenes:
+
+```json
+{
+  "product-gifts": {
+    "props": {
+      "maxVisibleItems": {
+        "desktop": 2,
+        "mobile": 1
+      }
+    },
+    "children": ["flex-layout.row#product-gifts-text", "product-gift-list"]
+  },
+
+  "flex-layout.row#product-gifts-text": {
+    "props": {
+      "verticalAlign": "middle",
+      "colSizing": "auto",
+      "preserveLayoutOnMobile": true
+    },
+    "children": [
+      "rich-text#product-gifts",
+      "flex-layout.col#product-gifts-text"
+    ]
+  },
+  "flex-layout.col#product-gifts-text": {
+    "children": ["gift-text"],
+    "props": {
+      "verticalAlign": "middle"
+    }
+  },
+  "rich-text#product-gifts": {
+    "props": {
+      "text": "**+ GIFT**"
+    }
+  },
+  "gift-text": {
+    "props": {
+      "text": "{exceedingItems, plural, =0{} one {+ # gift} other {+ # gifts}}"
+    }
+  },
+  "product-gift-list": {
+    "children": ["flex-layout.row#gift"]
+  },
+  "flex-layout.row#gift": {
+    "props": {
+      "fullWidth": true
+    },
+    "children": ["flex-layout.col#gift-name-description", "gift-image"]
+  },
+  "flex-layout.col#gift-name-description": {
+    "props": {
+      "verticalAlign": "middle",
+      "rowGap": 3
+    },
+    "children": ["gift-name", "gift-description"]
+  }
+}
+```
+
+### Advanced configuration
+
+If desired, you can change the Product Gifts default implementation by explicitly declaring the code showed above in your `store.product` template.
+
+As a result, you will be able to configure the Product Gifts behavior by using all available props for each block:
+
+- **`product-gifts`**
+
+![product-gifts](https://user-images.githubusercontent.com/27777263/75771051-ee385b80-5d27-11ea-8600-5ea7f47ff64c.png)
+
+| Prop name         | Type                        | Description                                            | Default value |
+| ----------------- | --------------------------- | ------------------------------------------------------ | ------------- |
+| `maxVisibleItems` | `number` &#124; `"showAll"` | Maximum number of gifts that will be displayed at once | `"showAll"`   |
+
+- **`gift-text`**
+
+![gift-text](https://user-images.githubusercontent.com/27777263/75767717-01e0c380-5d22-11ea-8054-4440438a5441.png)
+
+| Prop name | Type     | Description                                                                                         | Default value                                                       |
+| --------- | -------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `text`    | `String` | A translatable string (according to [ICU pattern](https://formatjs.io/guides/message-syntax/)) that has variables that might be used to render any desired text regarding the gifts. | `"{exceedingItems, plural, =0{} one {+ # gift} other {+ # gifts}}"` |
+
+You can configure the string received by the `text` prop using the following variables:
+
+| Variable name    | Description                                                                                    |
+| ---------------- | ---------------------------------------------------------------------------------------------- |
+| `exceedingItems` | Number of items that were not rendered because of the `maxVisibleItems` prop of `product-gifts`. |
+| `totalGifts`     | Total number of gifts available.                                                               |
+| `visibleItems`   | Number of items that are being rendered.                                                       |
+
+-  **`gift-name`**
+
+![gift-name](https://user-images.githubusercontent.com/27777263/75767722-03aa8700-5d22-11ea-8150-2cbe2a7bb37a.png)
+
+| Prop name           | Type      | Description                                                               | Default value |
+| ------------------- | --------- | ------------------------------------------------------------------------- | ------------- |
+| `linkToProductPage` | `Boolean` | Whether or not the `gift-name` block should be a link to the gift's product page. | `false`       |
+
+- **`gift-image`** 
+
+![gift-image](https://user-images.githubusercontent.com/27777263/75767721-02795a00-5d22-11ea-8f51-fe80664b7f68.png)
+
+| Prop name    | Type                     | Description                                     | Default value |
+| ------------ | ------------------------ | ----------------------------------------------- | ------------- |
+| `maxWidth`   | `Number` &#124; `String` | Gift image maximum width.                    | `125`         |
+| `maxHeight`  | `Number` &#124; `String` | Gift image maximum height.                   | `125`         |
+| `minWidth`   | `Number` &#124; `String` | Gift image minimum width.                    | `125`         |
+| `minHeight`  | `Number` &#124; `String` | Gift image minimum height.                   | `125`         |
+| `imageLabel` | `String`                 | The label of the image that should be rendered. | `undefined`   |
+
+:information_source: *If no image label is defined, the* `gift-image` *block will use the first available image from the product's SKU.*
 
 ## Customization
 
-The first thing that should be present in this section is the sentence below, showing users the recipe pertaining to CSS customization in blocks:
-
-`In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).`
+In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
 
 Thereafter, you should add a single column table with the available CSS handles for that block:
 
-| CSS Handles |
-| ----------- |
-| `XXXXX`     |
-| `XXXXX`     |
-| `XXXXX`     |
-| `XXXXX`     |
-| `XXXXX`     |
-
-If there are none, add the following sentence instead:
-
-`The component still doesn't have CSS Handles for its specific customization.`
-
----
-
-Check out some documentation models that are already live:
-
-- [Breadcrumb](https://github.com/vtex-apps/breadcrumb)
-- [Image](https://vtex.io/docs/components/general/vtex.store-components/image)
+| CSS Handles              |
+| ------------------------ |
+| giftDescription          |
+| giftListItem             |
+| giftNameLink             |
+| giftNameText             |
+| productGiftListContainer |
+| productGiftText          |
+| productGiftsContainer    |
