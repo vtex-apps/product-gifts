@@ -4,9 +4,9 @@
 
 The Product Gifts app provides blocks responsible for displaying, in the Product Description block, all gifts available for a given product.
 
-![product-gifts-in-pdp](https://user-images.githubusercontent.com/27777263/75767692-f68d9800-5d21-11ea-87b9-aa4544f03698.png)
+:information_source: *A product's gift is configured in a [Buy&Win promotion](https://help.vtex.com/tutorial/buy-and-win--tutorials_322)*
 
-:information_source: *A product's gift is configured in a [Buy&Win promotion](https://help.vtex.com/tutorial/buy-and-win--tutorials_322)
+![product-gift](https://user-images.githubusercontent.com/52087100/75782082-20a08380-5d3d-11ea-9ae1-60873e03f1ac.png)
 
 ## Configuration
 
@@ -28,7 +28,6 @@ Now, you are able to use all blocks exported by the `product-gifts` app. Check o
 | `gift-image` | Renders the product's gift image.|
 | `gift-description` | Renders the gift's description provided by the `product-gift-list` block. |
 
-
 2. Add the `product-gifts` block to your `store.product` template:
 
 ```jsonc
@@ -40,7 +39,7 @@ Now, you are able to use all blocks exported by the `product-gifts` app. Check o
 }
 ```
 
-When added to the `store.product` template but not declared with any children or prop, the Product Gifts block is rendered even so. 
+When added to the `store.product` template but not declared with any children or prop, the Product Gifts block is rendered even so.
 
 For the rendering, it uses the following block implementation behind the scenes:
 
