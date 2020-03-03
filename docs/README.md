@@ -22,7 +22,7 @@ Now, you are able to use all blocks exported by the `product-gifts` app. Check o
 
 | Block name     | Description                                     |
 | -------------- | ----------------------------------------------- |
-| `product-gifts`| ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red) Renders a default Product Gifts block implementation | 
+| `product-gifts`| ![mandatory](https://img.shields.io/badge/-Mandatory-red) Renders a default Product Gifts block implementation. | 
 | `gift-text` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red) Reads Catalog data regarding the product's gifts and provide it to its children. |
 | `product-gift-list` | Renders the available gifts in a list format. It also provides context for its 3 children listed below. |
 | `gift-name` | Renders the product's gift name. |
