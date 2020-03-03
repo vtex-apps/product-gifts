@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2020-03-03
+
 ### Added
 - Added new block to the exported blocks table (documentation)
 - Added the `Mandatory` badge in 2 blocks (documentation)
