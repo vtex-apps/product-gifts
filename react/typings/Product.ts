@@ -13,6 +13,23 @@ interface OrderForm {
   messages: OrderFormMessages
 }
 
+interface ProductGiftsQueryResponse {
+  product: {
+    items: ProductGiftsQueryResponseItem[]
+  }
+}
+
+interface ProductGiftsQueryResponseItem {
+  itemId: string
+  sellers: ProductGiftsQueryResponseSeller[]
+}
+
+interface ProductGiftsQueryResponseSeller {
+  commertialOffer: {
+    gifts: Gift[]
+  }
+}
+
 interface OrderFormItemInput {
   id?: number
   index?: number

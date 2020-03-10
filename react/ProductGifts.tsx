@@ -19,30 +19,6 @@ interface State {
   maxVisibleItems: number | 'showAll'
 }
 
-interface ProductGiftsQueryResponse {
-  product: {
-    items: Array<{
-      itemId: string
-      sellers: Array<{
-        commertialOffer: {
-          gifts: Array<{
-            productName: string
-            brand: string
-            linkText: string
-            description: string
-            skuName: string
-            images: Array<{
-              imageUrl: string
-              imageLabel: string
-              imageText: string
-            }>
-          }>
-        }
-      }>
-    }>
-  }
-}
-
 const GiftsStateContext = createContext<State>({
   gifts: [],
   maxVisibleItems: 0,
