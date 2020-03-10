@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl'
 import { IOMessage } from 'vtex.native-types'
 import { useCssHandles } from 'vtex.css-handles'
 
-import { useProductGiftsState } from './ProductGiftsContext'
+import { useProductGiftsState } from './ProductGifts'
 
 interface Props {
   text?: string
