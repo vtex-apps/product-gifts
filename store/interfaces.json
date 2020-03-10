@@ -1,6 +1,7 @@
 {
   "product-gifts": {
     "component": "ProductGifts",
+    "render": "client",
     "composition": "children"
   },
   "product-gift-list": {
