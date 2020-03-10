@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- `product` query to be performed by the `ProductGifts` component.
+
+### Changed
+- `product-gifts` block will always render in the client.
 
 ## [0.1.1] - 2020-03-03
 
