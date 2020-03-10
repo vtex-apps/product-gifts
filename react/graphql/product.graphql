@@ -1,0 +1,31 @@
+query ProductGifts(
+  $slug: String
+  $identifier: ProductUniqueIdentifier
+  $skipCategoryTree: Boolean = true
+) {
+  product(
+    slug: $slug
+    identifier: $identifier
+    skipCategoryTree: $skipCategoryTree
+  ) @context(provider: "vtex.search-graphql") {
+    items {
+      itemId
+      sellers {
+        commertialOffer {
+          gifts {
+            productName
+            brand
+            linkText
+            description
+            skuName
+            images {
+              imageUrl
+              imageLabel
+              imageText
+            }
+          }
+        }
+      }
+    }
+  }
+}
