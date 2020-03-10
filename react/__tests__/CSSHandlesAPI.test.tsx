@@ -1,5 +1,7 @@
 /* eslint-disable jest/no-mocks-import */
 import React from 'react'
+import { act } from 'react-dom/test-utils'
+import wait from 'waait'
 
 import ProductGifts from '../ProductGifts'
 import GiftText from '../GiftText'
@@ -12,6 +14,7 @@ import {
   renderWithProductContext,
   findCSSHandles,
 } from '../__mocks__/testUtils'
+import { productGiftsQueryResultWithOneGift } from '../__mocks__/productGiftsQueryResult'
 
 const CSS_HANDLES_API = [
   'giftDescription',
@@ -29,18 +32,32 @@ const CSS_HANDLES_API = [
  * case because our CSS handles are a public API.
  */
 describe('CSS handles API', () => {
-  it('should have all expected CSS handles', () => {
-    const { container } = renderWithProductContext(
-      <ProductGifts maxVisibleItems={3}>
-        <GiftText text="{test} {dynamic}" />
-        <ProductGiftList>
-          <ProductGiftDescription />
-          <ProductGiftImage />
-          <ProductGiftName linkToProductPage />
-        </ProductGiftList>
-      </ProductGifts>,
-      itemWithOneGift
-    )
+  it('should have all expected CSS handles', async () => {
+    const { container } = renderWithProductContext({
+      Component: (
+        <ProductGifts maxVisibleItems={3}>
+          <GiftText text="{test} {dynamic}" />
+          <ProductGiftList>
+            <ProductGiftDescription />
+            <ProductGiftImage />
+            <ProductGiftName linkToProductPage />
+          </ProductGiftList>
+        </ProductGifts>
+      ),
+      selectedItem: itemWithOneGift,
+      productId: '1',
+      graphqlConfig: {
+        identifier: '1',
+        result: productGiftsQueryResultWithOneGift,
+      },
+    })
+
+    /**
+     * This is necessary because of state changes triggered by react-apollo hooks
+     * */
+    await act(async () => {
+      await wait(0)
+    })
 
     const foundHandles = findCSSHandles(container, CSS_HANDLES_API)
     expect(foundHandles).toEqual(CSS_HANDLES_API)
