@@ -50,10 +50,10 @@ const ProductGifts: StoreFunctionComponent<Props> = ({
   )
   const sellers = selectedItemFromProductQuery?.sellers ?? []
 
-  const gifts = sellers.reduce((acc: Gift[], curr) => {
-    acc.push(...(curr.commertialOffer.gifts ?? []))
-    return acc
-  }, [])
+  const gifts = sellers.reduce(
+    (acc: Gift[], curr) => acc.concat(curr.commertialOffer.gifts ?? []),
+    []
+  )
 
   const state = useMemo(
     () => ({ gifts, maxVisibleItems: staticMaxVisibleItems }),
