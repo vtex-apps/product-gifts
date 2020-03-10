@@ -60,7 +60,6 @@ const ProductGifts: StoreFunctionComponent<Props> = ({
     {
       variables: {
         identifier: { field: 'id', value: productContext?.product?.productId },
-        skipCategoryTree: true,
       },
     }
   )

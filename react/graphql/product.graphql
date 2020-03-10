@@ -1,13 +1,6 @@
-query ProductGifts(
-  $slug: String
-  $identifier: ProductUniqueIdentifier
-  $skipCategoryTree: Boolean = true
-) {
-  product(
-    slug: $slug
-    identifier: $identifier
-    skipCategoryTree: $skipCategoryTree
-  ) @context(provider: "vtex.search-graphql") {
+query ProductGifts($slug: String, $identifier: ProductUniqueIdentifier) {
+  product(slug: $slug, identifier: $identifier)
+    @context(provider: "vtex.search-graphql") {
     items {
       itemId
       sellers {
