@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 
-import { useProductGiftsState } from './ProductGiftsContext'
+import { useProductGiftsState } from './ProductGifts'
 import ProductGift from './components/ProductGift'
 
 const CSS_HANDLES = ['productGiftListContainer'] as const

@@ -2,15 +2,43 @@ import React, { ReactElement } from 'react'
 import { render } from '@vtex/test-tools/react'
 
 import { ProductContextProvider } from './vtex.product-context/ProductContextProvider'
+import ProductGiftsQuery from '../graphql/product.graphql'
 
-export function renderWithProductContext(
-  Component: ReactElement,
+interface RenderWithProductContextArgs {
+  Component: ReactElement
   selectedItem: ProductContextItem
-) {
+  productId: string
+  graphqlConfig: {
+    identifier: string
+    result: any
+  }
+}
+
+export function renderWithProductContext({
+  Component,
+  selectedItem,
+  productId,
+  graphqlConfig,
+}: RenderWithProductContextArgs) {
   return render(
-    <ProductContextProvider value={{ selectedItem }}>
+    <ProductContextProvider value={{ product: { productId }, selectedItem }}>
       {Component}
-    </ProductContextProvider>
+    </ProductContextProvider>,
+    {
+      graphql: {
+        mocks: [
+          {
+            request: {
+              query: ProductGiftsQuery,
+              variables: {
+                identifier: { field: 'id', value: graphqlConfig.identifier },
+              },
+            },
+            result: graphqlConfig.result,
+          },
+        ],
+      },
+    }
   )
 }
 

@@ -3,7 +3,7 @@ import React, { createContext, FC } from 'react'
 export const ProductContext = createContext({})
 
 interface Props {
-  value: { selectedItem: ProductContextItem }
+  value: { product: { productId: string }; selectedItem: ProductContextItem }
 }
 
 export const ProductContextProvider: FC<Props> = ({ children, value }) => {

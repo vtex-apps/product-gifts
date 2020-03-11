@@ -1,7 +1,7 @@
 import React, { FC, createContext, useContext } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 
-import { useProductGiftsState } from '../ProductGiftsContext'
+import { useProductGiftsState } from '../ProductGifts'
 
 interface Props {
   giftIndex: number
