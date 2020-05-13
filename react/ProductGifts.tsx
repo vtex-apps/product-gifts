@@ -37,6 +37,7 @@ const ProductGifts: StoreFunctionComponent<Props> = ({
       variables: {
         identifier: { field: 'id', value: productContext?.product?.productId },
       },
+      skip: !productContext?.product?.productId,
     }
   )
   const selectedItemId = productContext?.selectedItem?.itemId
