@@ -6,7 +6,7 @@ import {
   MaybeResponsiveInput,
 } from 'vtex.responsive-values'
 import { useCssHandles } from 'vtex.css-handles'
-import useProduct from 'vtex.product-context/useProduct'
+import { useProduct, useProductDispatch } from 'vtex.product-context'
 
 import ProductGiftsQuery from './graphql/product.graphql'
 
@@ -30,7 +30,8 @@ const ProductGifts: StoreFunctionComponent<Props> = ({
   children,
   maxVisibleItems = 'showAll',
 }) => {
-  const productContext: Maybe<ProductContextState> = useProduct()
+  const productContext = useProduct()
+  const dispatch = useProductDispatch()
   const { data, loading, error } = useQuery<ProductGiftsQueryResponse>(
     ProductGiftsQuery,
     {
@@ -40,6 +41,7 @@ const ProductGifts: StoreFunctionComponent<Props> = ({
       skip: productContext?.product?.productId == null,
     }
   )
+
   const selectedItemId = productContext?.selectedItem?.itemId
   const handles = useCssHandles(CSS_HANDLES)
   const staticMaxVisibleItems = useResponsiveValue<number | 'showAll'>(
@@ -49,6 +51,7 @@ const ProductGifts: StoreFunctionComponent<Props> = ({
   const selectedItemFromProductQuery = data?.product.items.find(
     item => item.itemId === selectedItemId
   )
+
   const sellers = selectedItemFromProductQuery?.sellers ?? []
 
   const gifts = sellers.reduce(
@@ -117,11 +120,13 @@ ProductGifts.schema = {
 
 export function useProductGiftsState() {
   const context = useContext(GiftsStateContext)
+
   if (context === undefined) {
     throw new Error(
       'useProductGiftsState must be used within a ProductGiftsContextProvider'
     )
   }
+
   return context
 }
 
