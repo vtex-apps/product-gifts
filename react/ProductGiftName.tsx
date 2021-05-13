@@ -1,21 +1,23 @@
-import React from 'react'
-import { defineMessages } from 'react-intl'
-import { Link } from 'vtex.render-runtime'
-import { useCssHandles } from 'vtex.css-handles'
+import React from "react";
+import { defineMessages } from "react-intl";
+import { Link } from "vtex.render-runtime";
+import { useCssHandles } from "vtex.css-handles";
 
-import { useGift } from './components/ProductGift'
+import { useGift } from "./components/ProductGift";
 
 interface Props {
-  linkToProductPage: boolean
+  linkToProductPage: boolean;
+  showProductName: boolean;
 }
 
-const CSS_HANDLES = ['giftNameLink', 'giftNameText'] as const
+const CSS_HANDLES = ["giftNameLink", "giftNameText"] as const;
 
 const ProductGiftName: StoreFunctionComponent<Props> = ({
   linkToProductPage = false,
+  showProductName = false,
 }) => {
-  const handles = useCssHandles(CSS_HANDLES)
-  const gift = useGift()
+  const handles = useCssHandles(CSS_HANDLES);
+  const gift = useGift();
 
   return linkToProductPage ? (
     // No need for this rule since <Link> already creates an anchor
@@ -25,44 +27,62 @@ const ProductGiftName: StoreFunctionComponent<Props> = ({
       className={`${handles.giftNameLink} c-on-base link`}
       to={`/${gift.linkText}/p`}
     >
-      <span className={`${handles.giftNameText}`}>{gift.skuName}</span>
+      <span className={`${handles.giftNameText}`}>
+        {showProductName ? gift.productName : gift.skuName}
+      </span>
     </Link>
   ) : (
-    <span className={`${handles.giftNameText} c-on-base`}>{gift.skuName}</span>
-  )
-}
+    <span className={`${handles.giftNameText} c-on-base`}>
+      {showProductName ? gift.productName : gift.skuName}
+    </span>
+  );
+};
 
 const messages = defineMessages({
   title: {
-    id: 'admin/editor.gift-name.title',
-    defaultMessage: '',
+    id: "admin/editor.gift-name.title",
+    defaultMessage: "",
   },
   description: {
-    id: 'admin/editor.gift-name.description',
-    defaultMessage: '',
+    id: "admin/editor.gift-name.description",
+    defaultMessage: "",
   },
   linkToProduct: {
-    id: 'admin/editor.gift-name.linkToProduct.title',
-    defaultMessage: '',
+    id: "admin/editor.gift-name.linkToProduct.title",
+    defaultMessage: "",
   },
   linkToProductDescription: {
-    id: 'admin/editor.gift-name.linkToProduct.description',
-    defaultMessage: '',
+    id: "admin/editor.gift-name.linkToProduct.description",
+    defaultMessage: "",
   },
-})
+  showProductName: {
+    id: "admin/editor.gift-name.showProductName.title",
+    defaultMessage: "",
+  },
+  showProductNameDescription: {
+    id: "admin/editor.gift-name.showProductName.description",
+    defaultMessage: "",
+  },
+});
 
 ProductGiftName.schema = {
   title: messages.title.id,
   description: messages.description.id,
-  type: 'object',
+  type: "object",
   properties: {
     linkToProduct: {
       default: false,
       title: messages.linkToProduct.id,
       description: messages.linkToProductDescription.id,
-      type: 'boolean',
+      type: "boolean",
+    },
+    showProductName: {
+      default: false,
+      title: messages.showProductName.id,
+      description: messages.showProductNameDescription.id,
+      type: "boolean",
     },
   },
-}
+};
 
-export default ProductGiftName
+export default ProductGiftName;
