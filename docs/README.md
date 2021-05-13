@@ -139,6 +139,7 @@ You can configure the string received by the `text` prop using the following var
 | Prop name           | Type      | Description                                                               | Default value |
 | ------------------- | --------- | ------------------------------------------------------------------------- | ------------- |
 | `linkToProductPage` | `Boolean` | Whether or not the `gift-name` block should be a link to the gift's product page. | `false`       |
+| `showProductName` | `Boolean` | Whether the `gift-name` block should show the product name instead the sku name | `false`       |
 
 - **`gift-image`** 
 
