@@ -77,10 +77,18 @@ ProductGiftName.schema = {
       type: 'boolean',
     },
     nameType: {
-      default: false,
       title: messages.nameType.id,
       description: messages.nameType.id,
-      type: 'boolean',
+      "type": "string",
+      "enum": [
+        "skuName",
+        "productName"
+      ],
+      "enumNames": [
+        "skuName",
+        "productName"
+      ],
+      "default": "skuName"
     },
   },
 }
