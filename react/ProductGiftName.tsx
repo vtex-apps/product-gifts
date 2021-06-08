@@ -79,16 +79,16 @@ ProductGiftName.schema = {
     nameType: {
       title: messages.nameType.id,
       description: messages.nameType.id,
-      "type": "string",
-      "enum": [
-        "skuName",
-        "productName"
+      type: 'string',
+      enum: [
+        'skuName',
+        'productName'
       ],
-      "enumNames": [
-        "skuName",
-        "productName"
+      enumNames: [
+        'skuName',
+        'productName'
       ],
-      "default": "skuName"
+      default: 'skuName'
     },
   },
 }
