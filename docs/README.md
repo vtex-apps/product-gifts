@@ -80,7 +80,7 @@ For the rendering, it uses the following block implementation behind the scenes:
   },
   "gift-text": {
     "props": {
-      "text": "{exceedingItems, plural, =0{} one {+ # gift} other {+ # gifts}}"
+      "text": "{exceedingItems, plural, =0{ } one {+ # gift} other {+ # gifts}}"
     }
   },
   "product-gift-list": {
@@ -122,7 +122,7 @@ As a result, you will be able to configure the Product Gifts behavior by using a
 
 | Prop name | Type     | Description                                                                                         | Default value                                                       |
 | --------- | -------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `text`    | `String` | A translatable string (according to [ICU pattern](https://formatjs.io/guides/message-syntax/)) that has variables that might be used to render any desired text regarding the gifts. | `"{exceedingItems, plural, =0{} one {+ # gift} other {+ # gifts}}"` |
+| `text`    | `String` | A translatable string (according to [ICU pattern](https://formatjs.io/guides/message-syntax/)) that has variables that might be used to render any desired text regarding the gifts. | `"{exceedingItems, plural, =0{ } one {+ # gift} other {+ # gifts}}"` |
 
 You can configure the string received by the `text` prop using the following variables:
 

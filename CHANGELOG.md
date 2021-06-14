@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `nameType` prop to `ProductGiftName` component. It allows the user to choose whether to show the skuname or the productname of the gift.
 
+## [0.2.2] - 2021-06-14
+### Fixed
+- Default value for prop `text` passed to `gift-text` block.
+
 ## [0.2.1] - 2020-05-13
 ### Fixed
 - Avoid making query if context has no product.
