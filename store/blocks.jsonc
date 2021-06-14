@@ -33,7 +33,7 @@
   },
   "gift-text": {
     "props": {
-      "text": "{exceedingItems, plural, =0{} one {+ # gift} other {+ # gifts}}"
+      "text": "{exceedingItems, plural, =0{ } one {+ # gift} other {+ # gifts}}"
     }
   },
   "product-gift-list": {
