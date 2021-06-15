@@ -7,6 +7,8 @@
   "admin/editor.gift-name.description": "Nombre del regalo.",
   "admin/editor.gift-name.linkToProduct.title": "Link a la página del produto",
   "admin/editor.gift-name.linkToProduct.description": "Si el nombre del regalo también debe ser un enlace a la página del producto.",
+  "admin/editor.gift-name.nameType.title": "Tipo de nombre de la pantalla",
+  "admin/editor.gift-name.nameType.description": "Mostrar el skuName o productName del regalo.",
   "admin/editor.product-gifts.title": "Regalos de productos",
   "admin/editor.product-gifts.description": "Mostrar regalos disponibles para el producto actual.",
   "admin/editor.product-gifts.maxVisibleItems.title": "Máximo de elementos visibles",

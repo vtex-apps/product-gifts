@@ -7,12 +7,14 @@ import { useGift } from './components/ProductGift'
 
 interface Props {
   linkToProductPage: boolean
+  nameType: 'skuName' | 'productName'
 }
 
 const CSS_HANDLES = ['giftNameLink', 'giftNameText'] as const
 
 const ProductGiftName: StoreFunctionComponent<Props> = ({
   linkToProductPage = false,
+  nameType = 'skuName',
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const gift = useGift()
@@ -25,10 +27,14 @@ const ProductGiftName: StoreFunctionComponent<Props> = ({
       className={`${handles.giftNameLink} c-on-base link`}
       to={`/${gift.linkText}/p`}
     >
-      <span className={`${handles.giftNameText}`}>{gift.skuName}</span>
+      <span className={`${handles.giftNameText}`}>
+        {nameType === 'skuName' ? gift.skuName : gift.productName}
+      </span>
     </Link>
   ) : (
-    <span className={`${handles.giftNameText} c-on-base`}>{gift.skuName}</span>
+    <span className={`${handles.giftNameText} c-on-base`}>
+      {nameType === 'skuName' ? gift.skuName : gift.productName}
+    </span>
   )
 }
 
@@ -49,6 +55,14 @@ const messages = defineMessages({
     id: 'admin/editor.gift-name.linkToProduct.description',
     defaultMessage: '',
   },
+  nameType: {
+    id: 'admin/editor.gift-name.nameType.title',
+    defaultMessage: '',
+  },
+  nameTypeDescription: {
+    id: 'admin/editor.gift-name.nameType.description',
+    defaultMessage: '',
+  },
 })
 
 ProductGiftName.schema = {
@@ -61,6 +75,20 @@ ProductGiftName.schema = {
       title: messages.linkToProduct.id,
       description: messages.linkToProductDescription.id,
       type: 'boolean',
+    },
+    nameType: {
+      title: messages.nameType.id,
+      description: messages.nameType.id,
+      type: 'string',
+      enum: [
+        'skuName',
+        'productName'
+      ],
+      enumNames: [
+        'skuName',
+        'productName'
+      ],
+      default: 'skuName'
     },
   },
 }
