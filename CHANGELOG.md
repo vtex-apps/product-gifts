@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Crowdin configuration file.
+
+### Fixed
+- I18n En and Es.
+
 ## [0.3.0] - 2021-06-15
 ### Added
 - `nameType` prop to `ProductGiftName` component. It allows the user to choose whether to show the skuname or the productname of the gift.
