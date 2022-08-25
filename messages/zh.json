@@ -1,0 +1,20 @@
+{
+  "admin/editor.gift-image.title": "禮品圖片",
+  "admin/editor.gift-image.description": "產品的禮品圖片",
+  "admin/editor.gift-image.imageLabel.title": "圖片標籤",
+  "admin/editor.gift-image.imageLabel.description": "指定應該顯示產品中哪張圖片的標籤。",
+  "admin/editor.gift-name.title": "禮品名稱",
+  "admin/editor.gift-name.description": "禮品名稱。",
+  "admin/editor.gift-name.linkToProduct.title": "產品頁面的連結",
+  "admin/editor.gift-name.linkToProduct.description": "禮品名稱是否還應該作為產品頁面的連結。",
+  "admin/editor.gift-name.nameType.title": "顯示名稱的類型",
+  "admin/editor.gift-name.nameType.description": "顯示禮品的 SKU 名稱或產品名稱。",
+  "admin/editor.product-gifts.title": "產品禮品",
+  "admin/editor.product-gifts.description": "顯示當前產品的可用禮品。",
+  "admin/editor.product-gifts.maxVisibleItems.title": "最大可見商品",
+  "admin/editor.product-gifts.maxVisibleItems.description": "單次應該表達的禮品最大數量。（使用「顯示全部」，以顯示所有可用的禮品）",
+  "admin/editor.product-gift-text.title": "產品禮品文本",
+  "admin/editor.product-gift-text.description": "關於可用禮品的附加資料",
+  "admin/editor.product-gift-text.text.title": "文本",
+  "admin/editor.product-gift-text.text.description": "可用於表達任何禮品文本的可翻譯變量字串。其形式運用 UCI 規則，且可用變量包括：totalGifts、exceedingItems 和 visibleItems。"
+}
