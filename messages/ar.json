@@ -1,0 +1,20 @@
+{
+  "admin/editor.gift-image.title": "صورة الهدية",
+  "admin/editor.gift-image.description": "صورة هدية المنتج",
+  "admin/editor.gift-image.imageLabel.title": "تسمية الصورة",
+  "admin/editor.gift-image.imageLabel.description": "حدد تسمية لتحديد الصورة التي يجب عرضها من المنتج.",
+  "admin/editor.gift-name.title": "اسم الهدية",
+  "admin/editor.gift-name.description": "اسم الهدية.",
+  "admin/editor.gift-name.linkToProduct.title": "رابط لصفحة المنتج",
+  "admin/editor.gift-name.linkToProduct.description": "سواء كان اسم الهدية أم لا يجب أن يكون أيضًا رابط لصفحة المنتج.",
+  "admin/editor.gift-name.nameType.title": "نوع اسم العرض",
+  "admin/editor.gift-name.nameType.description": "إظهار اسم sku الهدية أو اسم المنتج.",
+  "admin/editor.product-gifts.title": "هدية المنتج",
+  "admin/editor.product-gifts.description": "عرض الهدايا المتاحة للمنتج الحالي.",
+  "admin/editor.product-gifts.maxVisibleItems.title": "الحد الأقصى للعناصر المرئية",
+  "admin/editor.product-gifts.maxVisibleItems.description": "الحد الأقصى لعدد الهدايا التي يجب تقديمها في وقت واحد. (استخدم \"عرض\" لإظهار جميع الهدايا المتاحة)",
+  "admin/editor.product-gift-text.title": "نص منتج الهدايا",
+  "admin/editor.product-gift-text.description": "معلومات إضافية عن الهدايا المتاحة",
+  "admin/editor.product-gift-text.text.title": "النص",
+  "admin/editor.product-gift-text.text.description": "الخانة القابلة للترجمة تحتوي على متغيرات يمكن استخدامها لتقديم أي نص يتعلق بالهدايا. ويستخدم شكله قواعد UCI، والمتغيرات المتاحة هي: مجموع الهدايا والعناصر الزائدة والعناصر المرئية."
+}
