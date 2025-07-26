@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: product-gifts
+  description: The Product Gifts app provides blocks responsible for displaying,
+    in the Product Description block, all gifts available for a given product.
+  tags:
+    - typescript
+    - react:16
+  annotations:
+    vtex.com/janus-acronym: ""
+    vtex.com/o11y-os-index: ""
+    grafana/dashboard-selector: ""
+    github.com/project-slug: vtex-apps/product-gifts
+    vtex.com/platform-flow-id: ""
+    backstage.io/techdocs-ref: dir:../
+    vtex.com/application-id: 7OETLEN2
+spec:
+  system: store-framework-ui-apps
+  lifecycle: stable
+  owner: te-0013
+  type: frontend-ui
+  dependsOn: []
+  subcomponentOf: store-framework
